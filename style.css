@@ -1,0 +1,791 @@
+/* ===============================
+   THE VIEW FROM WITHIN
+   Final Website Styles
+   =============================== */
+
+:root {
+  --background: #f5efe2;
+  --ink: #181512;
+  --neutral: #b7ada4;
+  --inside: #d4a5b8;
+  --outside: #c9825f;
+  --about: #c6afe5;
+  --line: #8e8279;
+  --paragraph: #4f4842;
+  --shadow: 0 16px 34px rgba(32, 24, 18, 0.12);
+  --content-width: 1440px;
+  --transition: 250ms ease;
+}
+
+/* ===============================
+   Reset and General Styles
+   =============================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: Georgia, "Times New Roman", serif;
+  background: var(--background);
+  color: var(--ink);
+}
+
+main {
+  flex: 1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* ===============================
+   Accessibility
+   =============================== */
+
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 18px;
+  z-index: 1000;
+  padding: 12px 16px;
+  background: var(--ink);
+  color: var(--background);
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+a:focus-visible,
+button:focus-visible,
+figure:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 4px;
+}
+
+/* ===============================
+   Header and Navigation
+   =============================== */
+
+.site-header {
+  width: 100%;
+  min-height: 56px;
+  padding: 12px clamp(20px, 3vw, 34px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--neutral);
+  border-bottom: 1px solid rgba(24, 21, 18, 0.4);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.01em;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 3vw, 36px);
+}
+
+.nav-links a {
+  position: relative;
+  padding: 5px 0;
+  font-size: 0.98rem;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after,
+.nav-links a[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+.menu-toggle {
+  display: none;
+  border: none;
+  background: transparent;
+  color: var(--ink);
+  font-size: 1.45rem;
+  cursor: pointer;
+}
+
+/* Header page colours */
+
+.pink-header {
+  background: var(--inside);
+}
+
+.orange-header {
+  background: var(--outside);
+}
+
+.purple-header {
+  background: var(--about);
+}
+
+/* ===============================
+   Typography
+   =============================== */
+
+.small-label {
+  margin-bottom: 16px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+h1,
+h2,
+figcaption,
+.btn {
+  text-transform: uppercase;
+}
+
+/* ===============================
+   Buttons
+   =============================== */
+
+.btn {
+  min-height: 48px;
+  padding: 13px 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(24, 21, 18, 0.42);
+  font-size: 0.81rem;
+  font-weight: bold;
+  letter-spacing: 0.12em;
+  transition:
+    transform var(--transition),
+    background-color var(--transition),
+    color var(--transition),
+    border-color var(--transition);
+}
+
+.neutral-btn {
+  background: var(--neutral);
+}
+
+.pink-btn {
+  background: var(--inside);
+}
+
+.orange-btn {
+  background: var(--outside);
+}
+
+.btn:hover,
+.btn:focus-visible {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--background);
+  transform: translateY(-3px);
+}
+
+.button-row,
+.double-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.center-button {
+  margin-top: clamp(38px, 5vw, 56px);
+  text-align: center;
+}
+
+/* ===============================
+   Home Page
+   =============================== */
+
+.hero {
+  min-height: clamp(420px, 57vh, 560px);
+  padding: 32px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image:
+    linear-gradient(rgba(32, 28, 24, 0.25), rgba(32, 28, 24, 0.29)),
+    url("images/home-bg.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-overlay {
+  max-width: 1200px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.hero-label {
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.hero h1 {
+  margin-bottom: 18px;
+  font-size: clamp(2.5rem, 6vw, 5.2rem);
+  line-height: 1.08;
+  letter-spacing: clamp(0.09em, 0.35vw, 0.16em);
+}
+
+.hero-subtitle {
+  font-size: clamp(0.82rem, 1.25vw, 0.96rem);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.19em;
+}
+
+.intro-section {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: clamp(58px, 7vw, 78px) 22px clamp(66px, 8vw, 92px);
+  text-align: center;
+}
+
+.intro-section::before {
+  content: "";
+  width: 60px;
+  height: 2px;
+  display: block;
+  margin: 0 auto 28px;
+  background: var(--ink);
+}
+
+.intro-statement {
+  max-width: 610px;
+  margin: 0 auto 22px;
+  font-size: clamp(1rem, 1.3vw, 1.08rem);
+  line-height: 1.7;
+}
+
+.concept-line {
+  max-width: 580px;
+  margin: 0 auto 40px;
+  color: var(--paragraph);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* ===============================
+   Inside and Outside Main Pages
+   =============================== */
+
+.main-feature-page {
+  width: min(var(--content-width), 100%);
+  min-height: calc(100vh - 112px);
+  margin: 0 auto;
+  padding: clamp(58px, 7vw, 92px) clamp(22px, 4vw, 58px);
+  display: grid;
+  grid-template-columns: minmax(285px, 0.84fr) minmax(420px, 1.42fr);
+  align-items: center;
+  gap: clamp(42px, 5vw, 76px);
+}
+
+.feature-text h1 {
+  margin-bottom: 28px;
+  font-size: clamp(3rem, 4.5vw, 3.7rem);
+  line-height: 1.08;
+  letter-spacing: 0.08em;
+}
+
+.feature-copy {
+  max-width: 450px;
+  margin-bottom: 26px;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.supporting-line {
+  max-width: 450px;
+  margin-bottom: 36px;
+  color: var(--paragraph);
+  font-size: 0.94rem;
+  line-height: 1.7;
+}
+
+.feature-image img {
+  height: clamp(370px, 39vw, 455px);
+  border: 1px solid rgba(24, 21, 18, 0.15);
+  box-shadow: var(--shadow);
+}
+
+.inside-main-page .feature-image img {
+  object-position: center center;
+}
+
+.outside-main-page .feature-image img {
+  object-position: center bottom;
+}
+
+/* ===============================
+   Gallery Pages
+   =============================== */
+
+.gallery-page {
+  width: min(var(--content-width), 100%);
+  margin: 0 auto;
+  padding:
+    clamp(62px, 7vw, 92px)
+    clamp(20px, 4vw, 58px)
+    clamp(64px, 7vw, 96px);
+}
+
+.gallery-heading {
+  max-width: 860px;
+  margin: 0 auto clamp(38px, 4vw, 58px);
+  text-align: center;
+}
+
+.gallery-heading h1 {
+  margin-bottom: 22px;
+  font-size: clamp(2.45rem, 4.3vw, 3.45rem);
+  line-height: 1.1;
+  letter-spacing: 0.09em;
+}
+
+.gallery-description {
+  max-width: 690px;
+  margin: 0 auto;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.image-grid {
+  width: 100%;
+  display: grid;
+  gap: clamp(18px, 2.4vw, 32px);
+}
+
+.image-grid.six {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+figure {
+  position: relative;
+  overflow: hidden;
+  background: #ded7cb;
+  border: 1px solid rgba(24, 21, 18, 0.15);
+  box-shadow: 0 10px 25px rgba(32, 24, 18, 0.08);
+}
+
+.image-grid.six img {
+  height: clamp(220px, 18.5vw, 275px);
+  transition:
+    transform 380ms ease,
+    filter 380ms ease;
+}
+
+figure:hover img,
+figure:focus img {
+  transform: scale(1.055);
+  filter: brightness(0.7);
+}
+
+figcaption {
+  position: absolute;
+  left: 17px;
+  bottom: 15px;
+  padding: 7px 11px;
+  background: rgba(16, 14, 12, 0.48);
+  color: #ffffff;
+  font-size: 0.79rem;
+  font-weight: bold;
+  letter-spacing: 0.11em;
+  transition: background-color var(--transition);
+}
+
+figure:hover figcaption,
+figure:focus figcaption {
+  background: rgba(16, 14, 12, 0.74);
+}
+
+.inside-gallery-page .image-grid.six figure:nth-child(4) img {
+  object-position: top center;
+}
+
+/* ===============================
+   About Page
+   =============================== */
+
+.about-layout {
+  width: min(var(--content-width), 100%);
+  min-height: 560px;
+  margin: 0 auto;
+  padding: clamp(58px, 7vw, 84px) clamp(22px, 4vw, 58px);
+  display: grid;
+  grid-template-columns: minmax(290px, 0.9fr) minmax(430px, 1.28fr);
+  align-items: center;
+  gap: clamp(42px, 5vw, 76px);
+}
+
+.about-text h1 {
+  margin-bottom: 30px;
+  font-size: clamp(2.8rem, 4.2vw, 3.4rem);
+  letter-spacing: 0.1em;
+}
+
+.about-copy {
+  max-width: 460px;
+  margin-bottom: 22px;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.about-image img {
+  height: clamp(360px, 35vw, 430px);
+  border: 1px solid rgba(24, 21, 18, 0.15);
+  box-shadow: var(--shadow);
+  object-position: center center;
+}
+
+.about-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.card {
+  min-height: 178px;
+  padding: clamp(30px, 3.3vw, 46px) clamp(22px, 3vw, 42px);
+  border-right: 1px solid var(--line);
+  transition: background-color var(--transition);
+}
+
+.card:last-child {
+  border-right: none;
+}
+
+.card:hover {
+  background: rgba(198, 175, 229, 0.25);
+}
+
+.card h2 {
+  margin-bottom: 16px;
+  font-size: clamp(1.35rem, 2vw, 1.65rem);
+  letter-spacing: 0.1em;
+}
+
+.card p {
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+
+.closing-section {
+  min-height: 182px;
+  padding: 42px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.closing-section p {
+  max-width: 780px;
+  font-size: 1.04rem;
+  line-height: 1.75;
+}
+
+/* ===============================
+   Footer
+   Footer colours match headers
+   =============================== */
+
+.site-footer {
+  min-height: 56px;
+  padding: 13px clamp(20px, 3vw, 34px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 1px solid rgba(24, 21, 18, 0.28);
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+}
+
+/* Home: neutral header and footer */
+
+.home-page .site-header,
+.home-page .site-footer {
+  background: var(--neutral);
+}
+
+/* Inside: pink header and footer */
+
+.inside-main-page .site-header,
+.inside-main-page .site-footer,
+.inside-gallery-page .site-header,
+.inside-gallery-page .site-footer {
+  background: var(--inside);
+}
+
+/* Outside: orange header and footer */
+
+.outside-main-page .site-header,
+.outside-main-page .site-footer,
+.outside-gallery-page .site-header,
+.outside-gallery-page .site-footer {
+  background: var(--outside);
+}
+
+/* About: purple header and footer */
+
+.about-page .site-header,
+.about-page .site-footer {
+  background: var(--about);
+}
+
+.footer-links {
+  display: flex;
+  gap: clamp(18px, 3vw, 32px);
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* ===============================
+   Animation
+   =============================== */
+
+.fade-in {
+  animation: fadeIn 720ms ease both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===============================
+   Tablet Layout
+   =============================== */
+
+@media (max-width: 1000px) {
+  .main-feature-page,
+  .about-layout {
+    max-width: 720px;
+    min-height: auto;
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+
+  .feature-text,
+  .about-text {
+    max-width: 590px;
+  }
+
+  .feature-image img,
+  .about-image img {
+    height: clamp(320px, 54vw, 430px);
+  }
+
+  .image-grid.six {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .image-grid.six img {
+    height: clamp(225px, 31vw, 290px);
+  }
+}
+
+/* ===============================
+   Mobile Layout
+   =============================== */
+
+@media (max-width: 680px) {
+  .site-header {
+    min-height: 56px;
+    padding: 13px 18px;
+  }
+
+  .logo {
+    font-size: 0.94rem;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 56px;
+    right: 0;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 18px;
+    background: inherit;
+    border-bottom: 1px solid rgba(24, 21, 18, 0.42);
+    box-shadow: 0 14px 22px rgba(20, 18, 14, 0.12);
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .hero {
+    min-height: 420px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.1rem, 12vw, 3rem);
+    letter-spacing: 0.09em;
+  }
+
+  .hero-subtitle {
+    max-width: 300px;
+    margin: 0 auto;
+    font-size: 0.75rem;
+    line-height: 1.8;
+  }
+
+  .intro-section {
+    padding: 50px 20px 58px;
+  }
+
+  .button-row,
+  .double-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+
+  .btn {
+    width: min(100%, 270px);
+    margin: 0 auto;
+  }
+
+  .main-feature-page {
+    padding: 48px 20px 58px;
+  }
+
+  .feature-text h1,
+  .about-text h1 {
+    font-size: clamp(2.45rem, 14vw, 3rem);
+  }
+
+  .feature-image img,
+  .about-image img {
+    height: 290px;
+  }
+
+  .gallery-page {
+    padding: 50px 20px 58px;
+  }
+
+  .gallery-heading {
+    margin-bottom: 34px;
+    text-align: left;
+  }
+
+  .gallery-heading h1 {
+    font-size: clamp(2.1rem, 11vw, 2.65rem);
+  }
+
+  .gallery-description {
+    margin: 0;
+  }
+
+  .image-grid.six {
+    grid-template-columns: 1fr;
+  }
+
+  .image-grid.six img {
+    height: clamp(230px, 63vw, 285px);
+  }
+
+  .about-layout {
+    padding: 48px 20px;
+  }
+
+  .about-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    min-height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .card:last-child {
+    border-bottom: none;
+  }
+
+  .closing-section {
+    min-height: 165px;
+    padding: 36px 20px;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    padding-top: 17px;
+    padding-bottom: 17px;
+    text-align: center;
+  }
+}
+
+/* ===============================
+   Reduced Motion Accessibility
+   =============================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto;
+    animation-duration: 1ms !important;
+    transition-duration: 1ms !important;
+  }
+}

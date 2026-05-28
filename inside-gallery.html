@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inside Gallery | Inside and Outside</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="inside-gallery-page">
+
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header pink-header">
+    <a href="index.html" class="logo">Inside and Outside</a>
+
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-controls="primaryNavigation"
+      aria-expanded="false">
+      ☰
+    </button>
+
+    <nav class="nav-links" id="primaryNavigation" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="inside.html" class="active" aria-current="page">Inside</a>
+      <a href="outside.html">Outside</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main id="main-content" class="gallery-page fade-in">
+
+    <section class="gallery-heading">
+      <p class="small-label">Inside Gallery</p>
+
+      <h1>Interior Moments</h1>
+
+      <p class="gallery-description">
+        A visual collection of interior details exploring light, framed space,
+        reflection and personal atmosphere.
+      </p>
+    </section>
+
+    <section class="image-grid six" aria-label="Interior photography gallery">
+
+      <figure tabindex="0">
+        <img
+          src="images/inside-1.jpg"
+          alt="A mirrored sphere and soft lighting in an interior setting." />
+        <figcaption>Light and Mood</figcaption>
+      </figure>
+
+      <figure tabindex="0">
+        <img
+          src="images/inside-2.jpg"
+          alt="A bookcase showing varied colours and printed titles." />
+        <figcaption>Colour Contrast</figcaption>
+      </figure>
+
+      <figure tabindex="0">
+        <img
+          src="images/inside-3.jpg"
+          alt="A framed mirror against an interior brick wall." />
+        <figcaption>Interior Reflection</figcaption>
+      </figure>
+
+      <figure tabindex="0">
+        <img
+          src="images/inside-4.jpg"
+          alt="A softly glowing lamp against warm curtains." />
+        <figcaption>Soft Interior</figcaption>
+      </figure>
+
+      <figure tabindex="0">
+        <img
+          src="images/inside-5.jpg"
+          alt="An abstract blue and gold reflective surface." />
+        <figcaption>Textures</figcaption>
+      </figure>
+
+      <figure tabindex="0">
+        <img
+          src="images/inside-6.jpg"
+          alt="Books and objects arranged beside a softly lit candle." />
+        <figcaption>Found Typography</figcaption>
+      </figure>
+
+    </section>
+
+    <div class="center-button double-buttons">
+      <a href="inside.html" class="btn pink-btn">Back to Inside</a>
+      <a href="outside.html" class="btn pink-btn">Explore Outside</a>
+    </div>
+
+  </main>
+
+  <footer class="site-footer pink-footer">
+    <span class="footer-title">The View From Within</span>
+
+    <div class="footer-links">
+      <a href="inside.html">Inside</a>
+      <a href="outside-gallery.html">Outside Gallery</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
